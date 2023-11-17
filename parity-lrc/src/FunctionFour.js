@@ -65,20 +65,16 @@ function FunctionFour() {
 
             setBccOutput(bcc);
 
-            // Calculate even parity bit for each input
             const evenParityBits = bitInputs.map((input) => input.split('').reduce((acc, bit) => acc + parseInt(bit, 10), 0) % 2);
             setEvenSetParityBit(evenParityBits.join(''));
 
-            // Calculate odd parity bit for each input (opposite of even parity bit)
             const oddParityBits = evenParityBits.map((bit) => (bit + 1) % 2);
             setOddSetParityBit(oddParityBits.join(''));
 
-            // Calculate bccEvenParityBit based on the count of 1's in evenParityBits
             const countEvenOnes = evenParityBits.filter((bit) => bit === 1).length;
             const bccEvenParityBit = countEvenOnes % 2 === 0 ? '0' : '1';
             setBccEvenParityBit(bccEvenParityBit);
 
-            // Calculate bccOddParityBit based on the count of 1's in oddParityBits
             const countOddOnes = oddParityBits.filter((bit) => bit === 1).length;
             const bccOddParityBit = countOddOnes % 2 === 1 ? '0' : '1';
             setBccOddParityBit(bccOddParityBit);
